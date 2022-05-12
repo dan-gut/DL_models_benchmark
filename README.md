@@ -8,6 +8,9 @@ All datasets used for comparison are avilable in public domain:
 * [task 2](https://data.mendeley.com/datasets/6x684vg2bg)
 * [task 3](https://www.kaggle.com/krzysztofrzecki/bone-marrow-oedema-data)
 * [task 4, 5, 6](http://medicaldecathlon.com/)
+* [task 7](https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI)
+* [task 8](https://www.kaggle.com/c/data-science-bowl-2018/data)
+* [task 9](https://competitions.codalab.org/competitions/17094)
 
 ## How to run
 0. Make sure to have [nnUnet](https://github.com/MIC-DKFZ/nnUNet) installed and configured properly.
