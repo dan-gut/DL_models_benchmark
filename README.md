@@ -2,16 +2,6 @@
 
 The repository contains the source code used for evaluation of UNet-based [1] deep neural network models used for medical image segmentation with use of nnUnet framework [2]. Following architectures were reimplemented and compared with basic version of Unet: UNet++ [3], UNet3+ [4], ResUnet [5], CPFNet [6] and CS2-Net [7].
 
-## Data
-All datasets used for comparison are avilable in public domain:
-* [task 1](https://data.mendeley.com/datasets/zm6bxzhmfz)
-* [task 2](https://data.mendeley.com/datasets/6x684vg2bg)
-* [task 3](https://www.kaggle.com/krzysztofrzecki/bone-marrow-oedema-data)
-* [task 4, 5, 6](http://medicaldecathlon.com/)
-* [task 7](https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI)
-* [task 8](https://www.kaggle.com/c/data-science-bowl-2018/data)
-* [task 9](https://competitions.codalab.org/competitions/17094)
-
 ## How to run
 0. Make sure to have [nnUnet](https://github.com/MIC-DKFZ/nnUNet) installed and configured properly.
 1. Code for each model is run separately and training/prediction scripts are provided in adequate directories.
@@ -24,6 +14,46 @@ python3 run_training.py TASK_NAME_OR_ID FOLD_NO
 ```bash
 python3 predict_simple.py -i path/to/test/images -o path/to/results/directory -tr trainerName -m 2d -p nnUNetPlansv2.1 -t taskName -chk model_best
 ```
+
+## Data
+All datasets used for comparison are avilable in public domain:
+* [task 1](https://data.mendeley.com/datasets/zm6bxzhmfz)
+* [task 2](https://data.mendeley.com/datasets/6x684vg2bg)
+* [task 3](https://www.kaggle.com/krzysztofrzecki/bone-marrow-oedema-data)
+* [task 4, 5, 6](http://medicaldecathlon.com/)
+* [task 7](https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI)
+* [task 8](https://www.kaggle.com/c/data-science-bowl-2018/data)
+* [task 9](https://competitions.codalab.org/competitions/17094)
+
+## Metrics
+Metrics that were used for evaluation of performance of trained models:
+1. The number of trainable parameters
+2. Training time
+3. Prediction time
+4. Sørensen–Dice coefficient
+5. Surface Dice coefficient
+6. Mean surface distance
+7. Hausdorff distance
+
+Metrics 4-7 were calculated using [surface-distance package](https://github.com/deepmind/surface-distance).
+
+Friedman test was used to test whether there is a difference between the segmentation quality measures computed for the six different architectures. The assumed significance level was equal to 0.05. Whenever the Friedman test indicated a statistically significant difference between models, Nemenyi post hoc tests were run to discover differences between models on a pair-wise basis. We implemented statistical testing procedures in Python using [scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html) and [scikit-posthocs](https://scikit-posthocs.readthedocs.io/en/latest/posthocs_api/) packages.
+
+## Results
+The results are visualized on the graph below.
+![P-value of post hoc test (comparing to UNet) versus difference of median of metric (comparing to UNet) for different architectures.](Results/post_hoc_test_results.png)
+
+The differences between quality metrics for simple U-Net and the competing architectures plotted against the p-values of post hoc tests. Positive values of differences for Dice coefficient or surface Dice coefficient for some architecture mean that the performance of this architecture was worse than that of U-Net in terms of either Dice coefficient or surface Dice coefficient. Analogously, negative values of differences for mean surface distance or Hausdorff distance for some architecture mean that the performance of this architecture was worse than that of U-Net in terms of either mean surface distance of Hausdorff distance. Clearly, there is no systematic pattern in the figure, that is, neither architecture is consistently better nor worse than U-Net. If some architecture is better than U-Net in some task, it is worse in other tasks. Moreover, even if some architecture is better in terms of some metric than U-Net, the difference in the quality metric may be of no domain significance.
+
+Detailed results can be found [here](Results/detailed_results.md) 
+
+## Submitting your algorithm for benchmark 
+We encourage authors of new promising architectures to compare their implementations and submit it to be included in our benchmark. To do so:
+1. Adapt your solution to nnUNet environment (see [Use a different network architecture](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/extending_nnunet.md#use-a-different-network-architecture) from nnUNet docs for more info).
+2. Train the models for each task until reaching convergence on the training sets.
+3. Calculate benchmarked metrics using [surface-distance package](https://github.com/deepmind/surface-distance).
+4. Send the results and the trained models (use of hosting service is recommended, see [Sharing models](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/common_questions.md#sharing-models) in nnUNet docs for more info) via [email](mailto:dgut@agh.edu.pl).
+
 
 ## References
 1. Ronneberger O., Fischer P., Brox T. (2015) U-Net: Convolutional Networks for Biomedical Image Segmentation. In: Navab N., Hornegger J., Wells W., Frangi A. (eds) Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015. MICCAI 2015. Lecture Notes in Computer Science, vol 9351. Springer, Cham. https://doi.org/10.1007/978-3-319-24574-4_28
