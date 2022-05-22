@@ -50,10 +50,9 @@ Detailed results can be found [here](Results/detailed_results.md)
 ## Submitting your algorithm for benchmark 
 We encourage authors of new promising architectures to compare their implementations and submit it to be included in our benchmark. To do so:
 1. Adapt your solution to nnUNet environment (see [Use a different network architecture](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/extending_nnunet.md#use-a-different-network-architecture) in nnUNet docs for more info).
-2. Train the models for each task until reaching convergence on the training sets.
-3. Calculate benchmarked metrics using [surface-distance package](https://github.com/deepmind/surface-distance).
-4. Send the results and the trained models (use of hosting service is recommended, see [Sharing models](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/common_questions.md#sharing-models) in nnUNet docs for more info) via [email](mailto:dgut@agh.edu.pl).
-
+2. Train the models and calculate benchmarked metrics for each task. 
+3. Add all the necessary code to a new directory in the benchmark repository using Pull Request. Please provide summary of the obtained results and any additional information that may be useful.
+4. Your results will be verified and the architecture will be added to the benchmark.
 
 ## References
 1. Ronneberger O., Fischer P., Brox T. (2015) U-Net: Convolutional Networks for Biomedical Image Segmentation. In: Navab N., Hornegger J., Wells W., Frangi A. (eds) Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015. MICCAI 2015. Lecture Notes in Computer Science, vol 9351. Springer, Cham. https://doi.org/10.1007/978-3-319-24574-4_28
