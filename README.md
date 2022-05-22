@@ -49,7 +49,7 @@ Detailed results can be found [here](Results/detailed_results.md)
 
 ## Submitting your algorithm for benchmark 
 We encourage authors of new promising architectures to compare their implementations and submit it to be included in our benchmark. To do so:
-1. Adapt your solution to nnUNet environment (see [Use a different network architecture](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/extending_nnunet.md#use-a-different-network-architecture) from nnUNet docs for more info).
+1. Adapt your solution to nnUNet environment (see [Use a different network architecture](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/extending_nnunet.md#use-a-different-network-architecture) in nnUNet docs for more info).
 2. Train the models for each task until reaching convergence on the training sets.
 3. Calculate benchmarked metrics using [surface-distance package](https://github.com/deepmind/surface-distance).
 4. Send the results and the trained models (use of hosting service is recommended, see [Sharing models](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/common_questions.md#sharing-models) in nnUNet docs for more info) via [email](mailto:dgut@agh.edu.pl).
