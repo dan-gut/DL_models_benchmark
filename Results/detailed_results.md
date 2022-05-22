@@ -33,7 +33,9 @@ Detailed results of the architecture comparison are provided below.
 | Task 7  | 5.84 (5.52)     | -               | -               | 23.13 (21.26)   | 19.39 (18.17)   | 9.99 (9.36)     |
 | Task 8  | 0.41 (0.49)     | 0.9 (0.29)      | 0.42 (0.49)     | 3.79 (0.41)     | 1.71 (0.45)     | 0.69 (0.46)     |
 | Task 9* | 192.93 (140.70) | 269.11 (209.45) | 196.76 (144.55) | 646.56 (573.07) | 383.53 (301.55) | 232.67 (171.32) |
+
 *Due to to memory limits predictions for Task 9 were performed on different GPU so absolute value cannot be compared with other tasks.
+
 ## Median Dice coefficient (interquartile range given in brackets)
 | Task   | Tissue              | **U-Net**   | **CPFNet**  | **CS2-Net** | **UNet 3+** | **UNet++**  | **ResUNet** |
 |--------|---------------------|-------------|-------------|-------------|-------------|-------------|-------------|
