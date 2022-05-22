@@ -50,7 +50,7 @@ Detailed results can be found [here](Results/detailed_results.md)
 ## Submitting your algorithm for benchmark 
 We encourage authors of new promising architectures to compare their implementations and submit it to be included in our benchmark. To do so:
 1. Adapt your solution to nnUNet environment (see [Use a different network architecture](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/extending_nnunet.md#use-a-different-network-architecture) in nnUNet docs for more info).
-2. Train the models and calculate benchmarked metrics for each task. 
+2. Train the models and calculate benchmark metrics for each task. 
 3. Add all the necessary code to a new directory in the benchmark repository using Pull Request. Please provide summary of the obtained results and any additional information that may be useful.
 4. Your results will be verified and the architecture will be added to the benchmark.
 
